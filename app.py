@@ -16,7 +16,8 @@ def log_request():
 
 @app.route("/")
 def hello():
-    return "Hello BARIS!2222 "
+    #return "Hello BARIS!2222 "
+    return "Hello BARIS! " + request.headers["X-Forwarded-For"] [0]
 
 
 
