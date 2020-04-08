@@ -7,5 +7,5 @@ workflows:
       - gke/publish-and-rollout-image:
           cluster: cluster-1
           container: hello-baris
-          deployment: demo
+          deployment: hello-web
           tag: $CIRCLE_SHA1
