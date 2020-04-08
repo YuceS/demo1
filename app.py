@@ -1,3 +1,4 @@
+
 from flask import Flask
 from flask import request
 
@@ -14,4 +15,10 @@ def log_request():
 
 
 @app.route("/")
-def hello
+def hello():
+    return "Hello BARIS!2222 "
+
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0',debug='true',port='9999')
