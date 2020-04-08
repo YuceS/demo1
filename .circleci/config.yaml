@@ -1,0 +1,11 @@
+orbs:
+  gke: circleci/gcp-gke@x.y.z
+version: 2.1
+workflows:
+  main:
+    jobs:
+      - gke/publish-and-rollout-image:
+          cluster: cluster-1
+          container: hello-baris
+          deployment: demo
+          tag: $CIRCLE_SHA1
