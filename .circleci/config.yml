@@ -9,3 +9,4 @@ workflows:
           container: hello-baris
           deployment: hello-web
           tag: $CIRCLE_SHA1
+          image: myimage
