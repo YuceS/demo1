@@ -17,7 +17,7 @@ def log_request():
 @app.route("/")
 def hello():
     #return "Hello BARIS!2222 "
-    return "Hello BARIS! " + str(request.access_route)
+    return "Hello BARIS! " + ", ".join(request.access_route)
 
 
 
