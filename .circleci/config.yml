@@ -27,3 +27,8 @@ workflows:
       - scale-out:
           requires:
             - user-acceptance
+          steps:
+            - run:
+                name: scale-out
+                command: |
+                  kubectl scale deployment/hello-web --replicas=10
