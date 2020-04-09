@@ -12,12 +12,15 @@ jobs:
           name: Scaling
           command: | 
             kubectl scale deployment/hello-web --replicas=10
+      - git-tools/commit:
+          increment_minor: true
 
       
 orbs:
   gke: circleci/gcp-gke@1.0.3
   gcloud: circleci/gcp-cli@1.8.4
   k8s: circleci/kubernetes@0.10.0
+  git-tools: sandbox/git-tools@0.3.0
 
 version: 2.1
 workflows:
