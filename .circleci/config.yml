@@ -1,13 +1,13 @@
 jobs:
-  - scale-out:
-      docker:
+  scale-out:
+    docker:
       - image: 'cimg/python'
-      steps: 
-        - gcloud/install
-        - k8s/install-kubectl
-        - run:
-            name: scaling
-            command: kubectl scale deployment/hello-web --replicas=10
+    steps: 
+      - gcloud/install
+      - k8s/install-kubectl
+      - run:
+          name: scaling
+          command: kubectl scale deployment/hello-web --replicas=10
 
       
 orbs:
