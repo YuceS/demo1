@@ -9,7 +9,7 @@ jobs:
           name: scaling
           command: | 
             gcloud auth login
-            gcloud container clusters get-credentials hello-web
+            gcloud container clusters get-credentials cluster-1
             kubectl scale deployment/hello-web --replicas=10
 
       
