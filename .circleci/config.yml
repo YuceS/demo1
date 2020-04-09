@@ -5,7 +5,9 @@ jobs:
       steps: 
         - gcloud/install
         - k8s/install-kubectl
-        - command: kubectl scale deployment/hello-web --replicas=10
+        - run:
+            name: scaling
+            command: kubectl scale deployment/hello-web --replicas=10
 
       
 orbs:
