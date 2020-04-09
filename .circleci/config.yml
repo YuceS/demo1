@@ -1,10 +1,11 @@
 jobs:
 
 scale-out:
-  run:
-    name: scale-out
-    command: |
-      kubectl scale deployment/hello-web --replicas=10
+  steps:
+    - run:
+      name: scale-out
+      command: |
+        kubectl scale deployment/hello-web --replicas=10
 
 
 orbs:
