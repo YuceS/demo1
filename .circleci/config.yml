@@ -1,9 +1,5 @@
-orbs:
-  gke: circleci/gcp-gke@1.0.3
-version: 2.1
-workflows:
-  main:
-    jobs:
+jobs:
+deploy-staging:
       - gke/publish-and-rollout-image:
           cluster: cluster-1
           deployment: hello-web
@@ -11,11 +7,24 @@ workflows:
           image: myimage
           container: hello-app
 
+scale-out:
+  run:
+    name : scale-ou
+    command: |
+      kubectl scale deployment/hello-web --replicas=10
 
-                - user-acceptance:
+
+orbs:
+  gke: circleci/gcp-gke@1.0.3
+version: 2.1
+workflows:
+  main:
+    jobs:
+      - deploy-staging:
+      - user-acceptance:
           type: approval
           requires:
-            - build
+            - deploy-staging
       - scale-out:
           requires:
-            - request-testing
+            - user-acceptance
