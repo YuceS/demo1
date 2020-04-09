@@ -1,15 +1,8 @@
 jobs:
-deploy-staging:
-      gke/publish-and-rollout-image:
-          cluster: cluster-1
-          deployment: hello-web
-          tag: $CIRCLE_SHA1
-          image: myimage
-          container: hello-app
 
 scale-out:
   run:
-    name : scale-ou
+    name: scale-out
     command: |
       kubectl scale deployment/hello-web --replicas=10
 
@@ -20,11 +13,16 @@ version: 2.1
 workflows:
   main:
     jobs:
-      - deploy-staging:
+      - gke/publish-and-rollout-image:
+          cluster: cluster-1
+          deployment: hello-web
+          tag: $CIRCLE_SHA1
+          image: myimage
+          container: hello-app
       - user-acceptance:
           type: approval
           requires:
-            - deploy-staging
+            - gke/publish-and-rollout-image
       - scale-out:
           requires:
             - user-acceptance
