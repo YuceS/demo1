@@ -7,11 +7,15 @@ jobs:
       - k8s/install-kubectl
       - run:
           name: scaling
-          command: kubectl scale deployment/hello-web --replicas=10
+          command: | 
+            gcloud container clusters get-credentials hello-web
+            kubectl scale deployment/hello-web --replicas=10
 
       
 orbs:
   gke: circleci/gcp-gke@1.0.3
+  gcloud: circleci/gcp-cli@1.8.4
+  k8s: circleci/kubernetes@0.10.0
 
 version: 2.1
 workflows:
