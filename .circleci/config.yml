@@ -27,6 +27,6 @@ workflows:
           type: approval
           requires:
             - gke/publish-and-rollout-image
-      - gke/run:
+      - scale-out:
           requires:
             - user-acceptance
