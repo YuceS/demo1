@@ -6,7 +6,7 @@ jobs:
       - gcloud/install
       - gcloud/initialize
       - k8s/install-kubectl
-      - gce/update-kubeconfig-with-credentials
+      - gke/update-kubeconfig-with-credentials
       - run:
           name: Scaling
           command: | 
