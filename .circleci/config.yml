@@ -4,11 +4,11 @@ jobs:
       - image: 'cimg/python:2.7'
     steps: 
       - gcloud/install
+      - gcloud/iniatialize
       - k8s/install-kubectl
       - run:
           name: scaling
           command: | 
-            gcloud auth login
             gcloud container clusters get-credentials cluster-1
             kubectl scale deployment/hello-web --replicas=10
 
