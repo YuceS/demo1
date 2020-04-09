@@ -4,7 +4,7 @@ jobs:
       - image: 'cimg/python:2.7'
     steps: 
       - gcloud/install
-      - gcloud/iniatialize
+      - gcloud/initialize
       - k8s/install-kubectl
       - run:
           name: scaling
