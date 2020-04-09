@@ -12,9 +12,12 @@ jobs:
           name: Scaling
           command: | 
             kubectl scale deployment/hello-web --replicas=10
+  git-release:
+    docker:
+      - image: 'cimg/python:2.7'
+    steps: 
       - git-tools/committag:
           increment_minor: true
-
       
 orbs:
   gke: circleci/gcp-gke@1.0.3
@@ -38,5 +41,8 @@ workflows:
           requires:
             - gke/publish-and-rollout-image
       - scale-out:
+          requires:
+            - user-acceptance
+      - git_release:
           requires:
             - user-acceptance
