@@ -43,6 +43,6 @@ workflows:
       - scale-out:
           requires:
             - user-acceptance
-      - git_release:
+      - git-release:
           requires:
             - user-acceptance
