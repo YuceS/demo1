@@ -6,10 +6,11 @@ jobs:
       - gcloud/install
       - gcloud/initialize
       - k8s/install-kubectl
+      - gce/update-kubeconfig-with-credentials
       - run:
-          name: scaling
+          name: Scaling
           command: | 
-            gcloud container clusters get-credentials cluster-1
+          #  gcloud container clusters get-credentials cluster-1
             kubectl scale deployment/hello-web --replicas=10
 
       
