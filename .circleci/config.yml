@@ -15,11 +15,10 @@ workflows:
           type: approval
           requires:
             - gke/publish-and-rollout-image
-#      - scale-out:
-#          requires:
-#            - user-acceptance
-#          steps:
-#            - run:
-#                name: scale-out
-#                command: |
-#                  kubectl scale deployment/hello-web --replicas=10
+      - scale-out:
+          requires:
+            - user-acceptance
+          steps:
+            - run:
+                command: |
+                  kubectl scale deployment/hello-web --replicas=10
