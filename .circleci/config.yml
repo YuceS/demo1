@@ -1,6 +1,6 @@
 jobs:
 deploy-staging:
-      - gke/publish-and-rollout-image:
+      gke/publish-and-rollout-image:
           cluster: cluster-1
           deployment: hello-web
           tag: $CIRCLE_SHA1
