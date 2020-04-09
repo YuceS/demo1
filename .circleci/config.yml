@@ -1,12 +1,3 @@
-jobs:
-
-scale-out:
-  steps:
-    - run:
-      name: scale-out
-      command: |
-        kubectl scale deployment/hello-web --replicas=10
-
 
 orbs:
   gke: circleci/gcp-gke@1.0.3
