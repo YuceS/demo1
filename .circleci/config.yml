@@ -10,3 +10,12 @@ workflows:
           tag: $CIRCLE_SHA1
           image: myimage
           container: hello-app
+
+
+                - user-acceptance:
+          type: approval
+          requires:
+            - build
+      - scale-out:
+          requires:
+            - request-testing

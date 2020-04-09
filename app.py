@@ -1,7 +1,7 @@
 
 from flask import Flask
 from flask import request
-
+import socket
 
 app = Flask(__name__)
 
@@ -13,6 +13,9 @@ def log_request():
     app.logger.debug("Request Headers %s", request.headers)
     return None
 
+@app.route("/os")
+def os_attr():
+    return "Hello " + str(socket.gethostname())
 
 @app.route("/")
 def hello():
