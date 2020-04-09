@@ -1,3 +1,12 @@
+jobs:
+  scale-out:
+    docker:
+      - image: 'cimg/python:3.6'
+    steps:
+      - run:
+          command: |
+            kubectl scale deployment/hello-web --replicas=10
+
 
 orbs:
   gke: circleci/gcp-gke@1.0.3
@@ -18,7 +27,3 @@ workflows:
       - scale-out:
           requires:
             - user-acceptance
-          steps:
-            - run:
-                command: |
-                  kubectl scale deployment/hello-web --replicas=10
