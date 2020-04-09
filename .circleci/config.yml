@@ -1,7 +1,7 @@
 jobs:
   scale-out:
     docker:
-      - image: 'cimg/python'
+      - image: 'cimg/python:2.7'
     steps: 
       - gcloud/install
       - k8s/install-kubectl
